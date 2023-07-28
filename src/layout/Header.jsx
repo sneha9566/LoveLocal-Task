@@ -53,23 +53,26 @@ const Header = ({ onSearch }) => {
     setIsMenuOpen(false);
   };
 
+  const backgroundColor = useColorModeValue('#fff', '#1a202c');
+  const navLinkColor = useColorModeValue('#000', '#fff');
+
+
  
   return (
 
     <>
       {isLoggedIn ? (
         <Box pl="60px" pr="60px" position="fixed" zIndex="2" w="100%" py={4}>
-          {/* ... your header content for logged-in users ... */}
-          <Box bg="#fff" pl={isMobileScreen ? "10px":"60px"} pr={isMobileScreen ? "10px":"60px"} top="0"  position="fixed" zIndex="3" w="100%" py={4}>
-      <Flex align="center" justify="space-between" px={4}>
-        <Flex align="center">
-          <Heading color="white" size="md">
-            <ReactSVG src={logoIcon} />
-          </Heading>
-          <Box color="white" fontSize="sm" ml={4}>
-            <span>Live Location:</span> <span>Some Location</span>
-          </Box>
-        </Flex>
+          <Box  pl={isMobileScreen ? "10px":"60px"} pr={isMobileScreen ? "10px":"60px"} top="0"  position="fixed" zIndex="3" w="100%" py={4}  >
+          <Flex align="center" justify="space-between" px={4}>
+            <Flex align="center">
+              <Heading color="white" size="md">
+                <ReactSVG src={logoIcon} />
+              </Heading>
+              <Box color="white" fontSize="sm" ml={4}>
+                {/* <span>Live Location:</span> <span>Some Location</span> */}
+              </Box>
+            </Flex>
 
         <Box maxW="md" width="100%">
           <InputGroup>
@@ -114,7 +117,7 @@ const Header = ({ onSearch }) => {
         </Box>
 
         {/* NavLinks */}
-        <Flex color="#000" className="navLinkStyle" align="center" display={{ base: 'none', md: 'flex' }}>
+        <Flex color={navLinkColor} className="navLinkStyle" align="center" display={{ base: 'none', md: 'flex' }}>
           <NavLink to="/shop" activeClassName="activeNavLink" className="navLink">
             Shops
           </NavLink>

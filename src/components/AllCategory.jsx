@@ -13,6 +13,7 @@ import { addItemToCart } from '../redux/cartSlice';
 import axiosInstance from '../utils/axios/axios';
 import {useDebounce,SortingOptions} from '../utils/helper';
 import CustomButton from '../Customcomponent/CustomButton';
+import { setLoginStatus } from '../redux/authSlice';
 
 const AllCategory = ({ searchQuery }) => {
   const [page, setPage] = useState(1);
@@ -208,11 +209,14 @@ const filteredSortedSelectedCategoryContent = useMemo(() => {
   const handleAddToCart = (product) => {
     dispatch(addItemToCart(product));
   };
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
 
   
 
   return (
-    <>
+    <> 
+     {isLoggedIn ? (  
       <Box h="100vh" pt={isMobileScreenTab ? "170px" : "140px"} pl={isMobileScreen ? "10px" : "60px"} pr={isMobileScreen ? "10px" : "60px"} display="flex">
       <Stack overflowY={isMobileScreen ? "scroll" : "auto"} pt="15px" width={isMobileScreen ? "400px" : "200px"} flexDirection={isMobileScreen ? "row" : "column"} position="fixed" spacing={4} align="stretch">
         <CustomButton
@@ -352,7 +356,11 @@ const filteredSortedSelectedCategoryContent = useMemo(() => {
         </Box>
         
       </Box>
-     
+
+     ):(
+      <Box h="100vh" display="flex" justifyContent="center" alignItems="center" fontSize="xl" fontWeight="bold" textAlign="center">Please Login</Box>
+     )
+}     
     </>
   );
 };
