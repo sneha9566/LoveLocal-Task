@@ -54,7 +54,7 @@ const LoginPage = () => {
             title: 'Error',
             description: 'Wrong username or password. Please try again.',
             status: 'error',
-            duration: 5000,
+            duration: 2000,
             isClosable: true,
           });
         }
@@ -64,7 +64,7 @@ const LoginPage = () => {
           title: 'Error',
           description: 'Wrong username or password. Please try again.',
           status: 'error',
-          duration: 5000,
+          duration: 2000,
           isClosable: true,
         });
       }
