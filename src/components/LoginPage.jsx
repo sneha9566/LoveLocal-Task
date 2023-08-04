@@ -23,7 +23,7 @@ const LoginPage = () => {
           title: 'Error',
           description: 'Please enter both username and password.',
           status: 'error',
-          duration: 5000,
+          duration: 2000,
           isClosable: true,
         });
         return; 
